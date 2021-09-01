@@ -1,0 +1,5 @@
+file.Content?.Replace("\n\r", "\n").Replace("\r", "\n").Split(new[] { '\n' }, StringSplitOptions.None)
+
+
+
+(timeout 120 docker stats --format '{{.MemPerc}}' ee621b92eab1 \  | sed 's/\x1b\[[0-9;]*[a-zA-Z]//g' ; echo) \  | tr -d '%' | sort -k1,1n | tail -n 1
